@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    max-width: 1200px !important;
+}
+
+.imgDiv {
+    margin: 1.5rem auto;
+    height: 50%;
+    width: 50%;
+}
+
+@layer components {
+    .disabled {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
+    .single-article h1 {
+        @apply text-3xl font-bold py-2;
+    }
+
+    .single-article h2 {
+        @apply text-xl font-bold py-2;
+    }
+
+    .single-article h3 {
+        @apply text-lg font-bold py-2;
+    }
+
+    .single-article pre {
+        @apply text-green-500 bg-gray-100 my-6 p-2;
+    }
+
+    .single-article blockquote {
+        @apply my-4 p-4 border-l-4 bg-gray-100 text-gray-500 border-green-500;
+    }
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .container {
+        max-width: 980px !important;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .container {
+        max-width: 420px !important;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .container {
+        max-width: 340px !important;
+    }
+}
+
