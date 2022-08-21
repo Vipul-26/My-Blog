@@ -26,7 +26,7 @@ const Article = ({ article }) => {
                 <div className="flex items-center my-2">
                     <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
                         <img
-                            src={`https://blog-next-js.herokuapp.com/${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
+                            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
                             height={35}
                             width={35}
                         />
@@ -43,7 +43,7 @@ const Article = ({ article }) => {
                 <div className="text-lg text-gray-600 leading-8">
                     <img
                         className={classnames("w-full my-6 mb-4 imgDiv")}
-                        src={`https://blog-next-js.herokuapp.com/${article.attributes.image.data[0].attributes.url}`}
+                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.image.data[0].attributes.url}`}
                         alt={article.attributes.title}
                     />
                     <div>

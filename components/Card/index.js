@@ -13,7 +13,7 @@ const Card = ({ article }) => {
             <div className="flex items-center my-3 sm:my-4">
                 <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
                     <img
-                        src={`https://blog-next-js.herokuapp.com/${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
+                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
                         height={35}
                         width={35}
                     />
