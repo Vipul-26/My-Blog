@@ -6,7 +6,10 @@ import axios from 'axios';
 import classnames from 'classnames';
 
 const Article = ({ article }) => {
-    console.log(article)
+    
+    const localUrl = 'http://localhost:1337';
+    const headUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL ? process.env.NEXT_PUBLIC_STRAPI_API_URL : localUrl;
+
     return (
         <>
             <Head>
@@ -26,7 +29,7 @@ const Article = ({ article }) => {
                 <div className="flex items-center my-2">
                     <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
                         <img
-                            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
+                            src={`${headUrl}${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
                             height={35}
                             width={35}
                         />
@@ -43,7 +46,7 @@ const Article = ({ article }) => {
                 <div className="text-lg text-gray-600 leading-8">
                     <img
                         className={classnames("w-full my-6 mb-4 imgDiv")}
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${article.attributes.image.data[0].attributes.url}`}
+                        src={`${headUrl}${article.attributes.image.data[0].attributes.url}`}
                         alt={article.attributes.title}
                     />
                     <div>
