@@ -8,7 +8,7 @@ export default (req, res) => {
         res.statusCode = 200;
         res.json({
             data: [
-                ...filteredData.filter(article => article.attributes.title.toLocaleLowerCase().includes(searchQuery))
+                ...filteredData.filter(article => article.attributes.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase()))
             ]
         });
     } else {
