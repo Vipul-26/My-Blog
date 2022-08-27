@@ -40,11 +40,11 @@ const Article = ({ article }) => {
                     </span>
                 </div>
                 <div className="text-lg text-gray-600 leading-8">
-                    {/* <img
+                    <img
                         className={classnames("w-full my-6 mb-4 imgDiv")}
-                        src={`${headUrl}${article.attributes.image.data[0].attributes.url}`}
+                        src={`https://venturebeat.com/wp-content/uploads/2018/01/javascript-e1656424565930.jpg?fit=750%2C376&strip=all`}
                         alt={article.attributes.title}
-                    /> */}
+                    />
                     <div>
                         <p className="text-lg">
                             {article.attributes.body}
