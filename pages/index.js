@@ -7,7 +7,7 @@ import Tabs from '../components/Tabs';
 import { debounce } from '../utils';
 import axios from 'axios';
 
-const Home = ({ articles, categories }) => {
+const Home = ({ articles, categories, query }) => {
 
   const router = useRouter();
 
@@ -15,7 +15,8 @@ const Home = ({ articles, categories }) => {
     router.push(`/?search=${query}`);
   };
 
-  const { page, pageCount } = articles.pagination;
+  const page = query.page ? +query.page : 1;
+  const pageCount = (6 / 4) % 1 === 0 ? 6 / 4 : Math.floor(6 / 4) + 1;
 
   return (
     <div>
@@ -33,7 +34,7 @@ const Home = ({ articles, categories }) => {
         categories={categories.items}
         handleOnSearch={debounce(handleSearch, 500)}
       />
-      <ArticleList articles={articles.items} />
+      <ArticleList articles={articles.items} isArtByCategory={false} />
       <Pagination page={page} pageCount={pageCount} />
     </div>
   );
@@ -43,37 +44,15 @@ export const getServerSideProps = async ({ query }) => {
 
   const api = axios.create({
     baseURL: process.env.API_BASE_URL,
-    headers: {
-      Authorization: `Bearer ${process.env.BACKEND_API_KEY}`,
-    },
   });
 
-  const fetchArticles = async (queryString) => api.get(`/api/articles?${queryString}`);
+  const fetchArticles = async () => api.post(`/api/article`, { pageNo: query.page ? +query.page : 1 });
 
-  const fetchCategories = async () => api.get('/api/categories');
+  const fetchCategories = async () => api.post('/api/category');
 
-  const options = {
-    populate: ['author.avatar'],
-    sort: ['id:desc'],
-    pagination: {
-      page: query.page ? +query.page : 1,
-      pageSize: 4,
-    }
-  };
+  const { data: articles } = await fetchArticles('article');
 
-  if (query.search) {
-    options.filters = {
-      title: {
-        $containsi: query.search,
-      },
-    };
-  };
-
-  const queryString = qs.stringify(options);
-
-  const { data: articles } = await fetchArticles(queryString);
-
-  const { data: categories } = await fetchCategories();
+  const { data: categories } = await fetchCategories('category');
 
   return {
     props: {
@@ -82,8 +61,8 @@ export const getServerSideProps = async ({ query }) => {
       },
       articles: {
         items: articles.data,
-        pagination: articles.meta.pagination,
-      }
+      },
+      query: query
     }
   };
 };

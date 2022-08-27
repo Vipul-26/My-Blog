@@ -8,8 +8,12 @@ import { debounce } from '../../utils';
 import Pagination from '../../components/Pagination';
 import { useRouter } from 'next/router';
 
-const Category = ({ categories, articles, slug }) => {
-    const { page, pageCount } = articles.pagination;
+const Category = ({ categories, articles, query }) => {
+
+    const page = query.page ? +query.page : 1;
+    // const pageCount = (articles.length / 4) % 1 === 0 ? articles.length / 4 : Math.floor(articles.length / 4) + 1;
+    const pageCount = 1;
+
     const router = useRouter();
     const { category: categorySlug } = router.query;
 
@@ -33,7 +37,7 @@ const Category = ({ categories, articles, slug }) => {
                 categories={categories.items}
                 handleOnSearch={debounce(handleSearch, 500)}
             />
-            <ArticleList articles={articles.items} />
+            <ArticleList articles={articles.items} isArtByCategory={true} />
             <Pagination
                 page={page}
                 pageCount={pageCount}
@@ -47,40 +51,13 @@ export const getServerSideProps = async ({ query }) => {
 
     const api = axios.create({
         baseURL: process.env.API_BASE_URL,
-        headers: {
-            Authorization: `Bearer ${process.env.BACKEND_API_KEY}`,
-        },
     });
 
-    const fetchArticles = async (queryString) => api.get(`/api/articles?${queryString}`);
+    const fetchArticlesByCategory = async (query) => api.get(`/api/category/${query}`);
 
-    const fetchCategories = async () => api.get('/api/categories');
+    const fetchCategories = async () => api.get('/api/category');
 
-    const options = {
-        populate: ['author.avatar'],
-        sort: ['id:desc'],
-        filters: {
-            category: {
-                slug: query.category,
-            },
-        },
-        pagination: {
-            page: query.page ? +query.page : 1,
-            pageSize: 4,
-        },
-    };
-
-    if (query.search) {
-        options.filters = {
-            title: {
-                $containsi: query.search,
-            },
-        };
-    };
-
-    const queryString = qs.stringify(options);
-
-    const { data: articles } = await fetchArticles(queryString);
+    const { data: articles } = await fetchArticlesByCategory(query.category);
 
     const { data: categories } = await fetchCategories();
 
@@ -88,13 +65,11 @@ export const getServerSideProps = async ({ query }) => {
         props: {
             categories: {
                 items: categories.data,
-                pagination: categories.meta.pagination,
             },
             articles: {
                 items: articles.data,
-                pagination: articles.meta.pagination,
             },
-            slug: query.category,
+            query: query,
         },
     };
 };

@@ -6,9 +6,6 @@ import style from './card.module.css';
 
 const Card = ({ article }) => {
 
-    const localUrl = 'http://localhost:1337';
-    const headUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL ? process.env.NEXT_PUBLIC_STRAPI_API_URL : localUrl;
-
     return (
         <div>
             <Link href={`/article/${article.attributes.slug}`} className={classnames("text-xs text-gray-600 font-bold", style.linkText)}>
@@ -17,7 +14,7 @@ const Card = ({ article }) => {
             <div className="flex items-center my-3 sm:my-4">
                 <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
                     <img
-                        src={`${headUrl}${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
+                        src='https://res.cloudinary.com/dtv9j4t89/image/upload/v1661516788/Vipul_Kumar_Singh_zzvido.jpg'
                         height={35}
                         width={35}
                     />

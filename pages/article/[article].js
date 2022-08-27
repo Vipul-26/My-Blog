@@ -6,9 +6,6 @@ import axios from 'axios';
 import classnames from 'classnames';
 
 const Article = ({ article }) => {
-    
-    const localUrl = 'http://localhost:1337';
-    const headUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL ? process.env.NEXT_PUBLIC_STRAPI_API_URL : localUrl;
 
     return (
         <>
@@ -29,7 +26,7 @@ const Article = ({ article }) => {
                 <div className="flex items-center my-2">
                     <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
                         <img
-                            src={`${headUrl}${article.attributes.author.data.attributes.avatar.data.attributes.formats.thumbnail.url}`}
+                            src='https://res.cloudinary.com/dtv9j4t89/image/upload/v1661516788/Vipul_Kumar_Singh_zzvido.jpg'
                             height={35}
                             width={35}
                         />
@@ -44,11 +41,11 @@ const Article = ({ article }) => {
                     </span>
                 </div>
                 <div className="text-lg text-gray-600 leading-8">
-                    <img
+                    {/* <img
                         className={classnames("w-full my-6 mb-4 imgDiv")}
                         src={`${headUrl}${article.attributes.image.data[0].attributes.url}`}
                         alt={article.attributes.title}
-                    />
+                    /> */}
                     <div>
                         <p className="text-lg">
                             {article.attributes.body}
@@ -64,23 +61,11 @@ export const getServerSideProps = async ({ query }) => {
 
     const api = axios.create({
         baseURL: process.env.API_BASE_URL,
-        headers: {
-            Authorization: `Bearer ${process.env.BACKEND_API_KEY}`,
-        },
     });
 
-    const queryString = qs.stringify({
-        populate: ['image', 'author.avatar'],
-        filters: {
-            slug: {
-                $eq: query.article,
-            },
-        },
-    });
+    const fetchArticleBySlug = async (query) => api.get(`/api/article/${query.article}`);
 
-    const fetchArticleBySlug = async (queryString) => api.get(`/api/articles?${queryString}`);
-
-    const { data: articles } = await fetchArticleBySlug(queryString);
+    const { data: articles } = await fetchArticleBySlug(query);
 
     if (articles.data.length === 0) {
         return {
