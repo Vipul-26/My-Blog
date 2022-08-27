@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import ArticleList from '../components/ArticleList';
-import qs from 'qs';
 import Pagination from '../components/Pagination';
 import { useRouter } from 'next/router';
 import Tabs from '../components/Tabs';
@@ -34,8 +33,16 @@ const Home = ({ articles, categories, query }) => {
         categories={categories.items}
         handleOnSearch={debounce(handleSearch, 500)}
       />
-      <ArticleList articles={articles.items} isArtByCategory={false} />
-      <Pagination page={page} pageCount={pageCount} />
+      {articles.items.length === 0 ?
+        <h2 className='h2-style'>
+          No Results found
+        </h2>
+        :
+        <>
+          <ArticleList articles={articles.items} isArtByCategory={query.search ? true : false} />
+          {!(query.search) && <Pagination page={page} pageCount={pageCount} />}
+        </>
+      }
     </div>
   );
 };
@@ -46,9 +53,13 @@ export const getServerSideProps = async ({ query }) => {
     baseURL: process.env.API_BASE_URL,
   });
 
-  const fetchArticles = async () => api.post(`/api/article`, { pageNo: query.page ? +query.page : 1 });
+  const fetchArticles = async () => api.post(`/api/article`,
+    {
+      pageNo: query.page ? +query.page : 1,
+      searchQuery: query.search ? query.search : '',
+    });
 
-  const fetchCategories = async () => api.post('/api/category');
+  const fetchCategories = async () => api.get('/api/category');
 
   const { data: articles } = await fetchArticles('article');
 

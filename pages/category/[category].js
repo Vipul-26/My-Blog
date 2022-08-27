@@ -2,7 +2,6 @@ import axios from 'axios';
 import Head from 'next/head';
 import React from 'react';
 import Tabs from '../../components/Tabs';
-import qs from 'qs';
 import ArticleList from '../../components/ArticleList';
 import { debounce } from '../../utils';
 import Pagination from '../../components/Pagination';
@@ -37,12 +36,16 @@ const Category = ({ categories, articles, query }) => {
                 categories={categories.items}
                 handleOnSearch={debounce(handleSearch, 500)}
             />
-            <ArticleList articles={articles.items} isArtByCategory={true} />
-            <Pagination
-                page={page}
-                pageCount={pageCount}
-                redirectUrl={`/category/${categorySlug}`}
-            />
+            {articles.items.length === 0 ?
+                <h2 className='h2-style'>
+                    No Results found
+                </h2>
+                :
+                <>
+                    <ArticleList articles={articles.items} isArtByCategory={true} />
+                    {!(query.search) && <Pagination page={page} pageCount={pageCount} redirectUrl={`/category/${categorySlug}`}/>}
+                </>
+            }
         </>
     );
 };
@@ -53,11 +56,12 @@ export const getServerSideProps = async ({ query }) => {
         baseURL: process.env.API_BASE_URL,
     });
 
-    const fetchArticlesByCategory = async (query) => api.get(`/api/category/${query}`);
+    const fetchArticlesByCategory = async (query) => api.post(`/api/category/${query.category}`,
+        { searchQuery: query.search ? query.search : '', });
 
     const fetchCategories = async () => api.get('/api/category');
 
-    const { data: articles } = await fetchArticlesByCategory(query.category);
+    const { data: articles } = await fetchArticlesByCategory(query);
 
     const { data: categories } = await fetchCategories();
 

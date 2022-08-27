@@ -1,5 +1,4 @@
 import React from 'react';
-import qs from 'qs';
 import { formatDate } from '../../utils';
 import Head from 'next/head';
 import axios from 'axios';
