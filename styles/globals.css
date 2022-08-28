@@ -17,13 +17,22 @@
     margin-top: 10rem;
 }
 
+.bodyTxt {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.footer {
+    background: azure;
+}
+
 @layer components {
     .disabled {
         @apply opacity-50 cursor-not-allowed;
     }
 
     .single-article h1 {
-        @apply text-3xl font-bold py-2;
+        @apply text-2xl font-bold py-2;
     }
 
     .single-article h2 {
@@ -41,7 +50,6 @@
     .single-article blockquote {
         @apply my-4 p-4 border-l-4 bg-gray-100 text-gray-500 border-green-500;
     }
-
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
@@ -53,6 +61,31 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .container {
         max-width: 720px !important;
+    }
+
+    .subscribeDiv {
+        grid-column: span 2 / span 2;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    @layer components {
+        .single-article h1 {
+            @apply text-xl font-bold py-2;
+        }
+    }
+
+    .subscribeDiv {
+        grid-column: span 2 / span 2;
+    }
+
+    .footer-div {
+        font-size: small;
+        align-items: flex-end;
+    }
+
+    .footer-div svg {
+        width: 1rem;
     }
 }
 
@@ -67,4 +100,3 @@
         max-width: 340px !important;
     }
 }
-

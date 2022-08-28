@@ -9,7 +9,7 @@ const MyApp = ({ Component, pageProps }) => {
       <div className="container mx-auto">
         <NextNProgress color="#53BD95" />
         <Header />
-        <main className="pb-36 sm:pb-32">
+        <main className="pb-24 md:pb-12 lg:pb-20 xl:pb-16 mt-20 md:mt-20 lg:mt-20 xl:mt-24">
           <Component {...pageProps} />
         </main>
         <Footer />

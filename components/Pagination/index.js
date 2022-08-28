@@ -28,7 +28,7 @@ const Pagination = ({ page, pageCount, redirectUrl = '/' }) => {
     };
 
     return (
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-8 md:mt-6 lg:mt-4">
             <button
                 onClick={() => handlePaginate(-1)}
                 className={`${'bg-primary py-2 px-4 text-white w-24 rounded'} ${isPrevDisabled() ? 'disabled' : ''}`}>
