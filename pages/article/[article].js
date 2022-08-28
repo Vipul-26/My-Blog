@@ -1,10 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { formatDate } from '../../utils';
 import Head from 'next/head';
 import axios from 'axios';
 import classnames from 'classnames';
 
 const Article = ({ article }) => {
+
+    useEffect(() => {
+        const facebookBtn = document.querySelector(".facebook-btn");
+        const twitterBtn = document.querySelector(".twitter-btn");
+        const linkedinBtn = document.querySelector(".linkedin-btn");
+        const share = () => {
+            let postUrl = encodeURI(document.location.href);
+            let postTitle = encodeURI(article.attributes.title);
+
+            facebookBtn.setAttribute(
+                "href",
+                `https://www.facebook.com/sharer.php?u=${postUrl}`
+            );
+            facebookBtn.setAttribute(
+                "target",
+                '_blank'
+            );
+            twitterBtn.setAttribute(
+                "href",
+                `https://twitter.com/share?url=${postUrl}&text=${postTitle}`
+            );
+            twitterBtn.setAttribute(
+                "target",
+                '_blank'
+            );
+            linkedinBtn.setAttribute(
+                "href",
+                `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${postTitle}`
+            );
+            linkedinBtn.setAttribute(
+                "target",
+                '_blank'
+            );
+        };
+        share();
+    }, []);
 
     return (
         <div>
@@ -71,7 +107,7 @@ const Article = ({ article }) => {
                         <span className="text-gray-500 mr-2">
                             Share on
                         </span>
-                        <a className="text-gray-500 hover:text-blue-700">
+                        <a href="#" className="text-gray-500 hover:text-blue-700 facebook-btn">
                             <svg
                                 fill="currentColor"
                                 strokeLinecap="round"
@@ -82,7 +118,7 @@ const Article = ({ article }) => {
                                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                             </svg>
                         </a>
-                        <a className="ml-3 text-gray-500 hover:text-blue-500">
+                        <a href="#" className="ml-3 text-gray-500 hover:text-blue-500 twitter-btn">
                             <svg
                                 fill="currentColor"
                                 strokeLinecap="round"
@@ -93,26 +129,7 @@ const Article = ({ article }) => {
                                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                             </svg>
                         </a>
-                        <a className="ml-3 text-gray-500 hover:text-pink-400">
-                            <svg
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                className="w-5 h-5"
-                                viewBox="0 0 24 24">
-                                <rect
-                                    width="20"
-                                    height="20"
-                                    x="2"
-                                    y="2"
-                                    rx="5"
-                                    ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                            </svg>
-                        </a>
-                        <a className="ml-3 text-gray-500 hover:text-purple-700">
+                        <a href="#" className="ml-3 text-gray-500 hover:text-purple-700 linkedin-btn">
                             <svg
                                 fill="currentColor"
                                 stroke="currentColor"
