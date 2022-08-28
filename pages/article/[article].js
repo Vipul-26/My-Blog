@@ -3,6 +3,7 @@ import { formatDate } from '../../utils';
 import Head from 'next/head';
 import axios from 'axios';
 import classnames from 'classnames';
+import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const Article = ({ article }) => {
 
@@ -41,6 +42,44 @@ const Article = ({ article }) => {
         };
         share();
     }, []);
+
+    const CustomForm = ({ status, message, onValidated }) => {
+        let email;
+        const submit = () =>
+            email &&
+            email.value.indexOf("@") > -1 &&
+            onValidated({
+                EMAIL: email.value,
+            });
+
+        return (
+            <div>
+                {status === "sending" && <div style={{ color: "blue", paddingTop: '0.5rem' }}>sending...</div>}
+                {status === "error" && (
+                    <div
+                        style={{ color: "red", paddingTop: '0.5rem' }}
+                        dangerouslySetInnerHTML={{ __html: message }}
+                    />
+                )}
+                {status === "success" && (
+                    <div
+                        style={{ color: "green", paddingTop: '0.5rem' }}
+                        dangerouslySetInnerHTML={{ __html: message }}
+                    />
+                )}
+                <input
+                    ref={node => (email = node)}
+                    className="border w-full p-2 pl-3 my-4 outline-primary"
+                    type="email"
+                    placeholder="Your work email"
+                />
+                <br />
+                <button className="border-2 border-primary rounded py-1 px-6 text-primary font-bold" onClick={submit}>
+                    Subscribe
+                </button>
+            </div>
+        );
+    };
 
     return (
         <div>
@@ -94,14 +133,16 @@ const Article = ({ article }) => {
                     <p className="mt-4 text-gray-500">
                         Get the latest article on all topics delivered to your inbox
                     </p>
-                    <input
-                        className="border w-full p-2 pl-3 my-6 outline-primary"
-                        type="email"
-                        placeholder="Your work email"
+                    <MailchimpSubscribe
+                        url={process.env.REACT_APP_MAILCHIMP_URL}
+                        render={({ subscribe, status, message }) => (
+                            <CustomForm
+                                status={status}
+                                message={message}
+                                onValidated={formData => subscribe(formData)}
+                            />
+                        )}
                     />
-                    <button className="border-2 border-primary rounded py-1 px-6 text-primary font-bold">
-                        Subscribe
-                    </button>
                     <hr className="mt-4 mb-0 md:my-6 border-gray-200" />
                     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                         <span className="text-gray-500 mr-2">
