@@ -185,7 +185,7 @@
             "id": 3,
             "attributes": {
                 "title": "How to learn Javascript",
-                "body": "<b>JavaScript</b> iss the programming language of the Web. It is easy to learn. <u>It is very</u> useful in frontend development.\n\n\n>It is good language for frontend\n\n\n```\nfunction js() {\n    console.log('Hello from js');\n}\n```",
+                "body": "<b> JavaScript </b> iss the programming language of the Web. It is easy to learn. <u> It is very </u> useful in frontend development.\n\n\n>It is good language for frontend\n\n\n```\nfunction js() {\n    console.log('Hello from js');\n}\n```",
                 "slug": "how-to-learn-javascript",
                 "createdAt": "2022-08-15T08:03:58.732Z",
                 "updatedAt": "2022-08-28T05:51:37.680Z",
