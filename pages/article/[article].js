@@ -134,7 +134,7 @@ const Article = ({ article }) => {
                         Get the latest article on all topics delivered to your inbox
                     </p>
                     <MailchimpSubscribe
-                        url={process.env.REACT_APP_MAILCHIMP_URL}
+                        url="https://gmail.us12.list-manage.com/subscribe/post?u=8c50474f7f0ca69ebb4c18274&amp;id=cdbc9842d9&amp;f_id=00beb7e0f0"
                         render={({ subscribe, status, message }) => (
                             <CustomForm
                                 status={status}
