@@ -46,9 +46,9 @@ const Article = ({ article }) => {
                         alt={article.attributes.title}
                     />
                     <div>
-                        <p className="text-lg">
-                            {article.attributes.body}
-                        </p>
+                        <p className="text-lg" dangerouslySetInnerHTML={{ __html: article.attributes.body }} />
+                            {/* {article.attributes.body}
+                        </p> */}
                     </div>
                 </div>
             </div>

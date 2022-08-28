@@ -184,11 +184,11 @@
         {
             "id": 3,
             "attributes": {
-                "title": "How to learn Javascript",
-                "body": "JavaScript is the programming language of the Web. It is easy to learn. It is very useful in frontend development.",
+                "title": "How to learn Javascriptttt",
+                "body": "**JavaScript** iss the programming language of the Web. It is easy to learn.<u> It is very</u> useful in frontend development.\n\n\n>It is good language for frontend\n\n\n```\nfunction js() {\n    console.log('Hello from js');\n}\n```",
                 "slug": "how-to-learn-javascript",
                 "createdAt": "2022-08-15T08:03:58.732Z",
-                "updatedAt": "2022-08-21T07:05:53.940Z",
+                "updatedAt": "2022-08-28T05:51:37.680Z",
                 "publishedAt": "2022-08-15T08:04:00.693Z",
                 "image": {
                     "data": [
@@ -598,5 +598,13 @@
                 }
             }
         }
-    ]
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 6
+        }
+    }
 }
