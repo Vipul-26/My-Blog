@@ -3,7 +3,9 @@ import { formatDate } from '../../utils';
 import Head from 'next/head';
 import axios from 'axios';
 import classnames from 'classnames';
-import MailchimpSubscribe from "react-mailchimp-subscribe"
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+import dynamic from 'next/dynamic';
+const MyMarkdown = dynamic(() => import('../../components/MyMarkdown/index'), { ssr: false });
 
 const Article = ({ article }) => {
 
@@ -122,7 +124,7 @@ const Article = ({ article }) => {
                             alt={article.attributes.title}
                         />
                         <div>
-                            <p className="bodyTxt" dangerouslySetInnerHTML={{ __html: article.attributes.body }} />
+                            <MyMarkdown article={article.attributes.body} />
                         </div>
                     </div>
                 </div>
