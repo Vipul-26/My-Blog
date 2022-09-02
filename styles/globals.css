@@ -61,11 +61,11 @@
     padding-top: 0.5rem;
 }
 
-.single-article blockquote p a { 
+.single-article blockquote p a {
     text-decoration: underline;
 }
 
-.single-article blockquote p a:hover { 
+.single-article blockquote p a:hover {
     color: cornflowerblue;
 }
 
@@ -129,6 +129,7 @@
     .single-article blockquote p {
         font-size: smaller;
         margin-left: 0;
+        margin-left: 0.25rem;
     }
 }
 
