@@ -53,6 +53,22 @@
     }
 }
 
+.single-article blockquote p {
+    margin-left: 0.5rem;
+}
+
+.single-article blockquote {
+    padding-top: 0.5rem;
+}
+
+.single-article blockquote p a { 
+    text-decoration: underline;
+}
+
+.single-article blockquote p a:hover { 
+    color: cornflowerblue;
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
     .container {
         max-width: 980px !important;
@@ -66,6 +82,10 @@
 
     .subscribeDiv {
         grid-column: span 2 / span 2;
+    }
+
+    .single-article blockquote p {
+        margin-left: 0.25rem;
     }
 }
 
@@ -87,6 +107,28 @@
 
     .footer-div svg {
         width: 1rem;
+    }
+
+    .single-article pre {
+        white-space: break-spaces;
+        font-size: x-small;
+    }
+
+    .single-article blockquote {
+        padding-top: 0.25rem;
+        border-left-width: 3px;
+        padding-left: 0.5rem;
+    }
+
+    .single-article blockquote h3 {
+        font-size: small;
+        font-weight: 600;
+        line-height: 1.25rem;
+    }
+
+    .single-article blockquote p {
+        font-size: smaller;
+        margin-left: 0;
     }
 }
 
