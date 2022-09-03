@@ -118,6 +118,7 @@
         padding-top: 0.25rem;
         border-left-width: 3px;
         padding-left: 0.5rem;
+        word-break: break-word;
     }
 
     .single-article blockquote h3 {
