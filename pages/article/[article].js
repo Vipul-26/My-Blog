@@ -13,11 +13,12 @@ const Article = ({ article }) => {
         'how-to-learn-javascript': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662030159/how-to-learn-javascript.jpg',
         'how-to-learn-next-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662091463/how-to-learn-next-js_z9pqs5.jpg',
         'how-to-learn-react-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662091260/how-to-learn-react-js_xvuuho.jpg',
+        'javascript-as-programming-language': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662176788/sample_pisli2.jpg',
+        'next-js-with-tailwind-css': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662176788/sample_pisli2.jpg',
+        'usefull-hooks-in-react-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662176788/sample_pisli2.jpg',
     };
 
-    // const imgUrl = imgData[article.attributes.slug];
-
-    const imgUrl = article.attributes.slug === 'how-to-learn-javascript' ? `https://res.cloudinary.com/dtv9j4t89/image/upload/v1662030159/how-to-learn-javascript.jpg` : `https://venturebeat.com/wp-content/uploads/2018/01/javascript-e1656424565930.jpg?fit=750%2C376&strip=all`;
+    const imgUrl = imgData[article.attributes.slug];
 
     useEffect(() => {
         const facebookBtn = document.querySelector(".facebook-btn");
