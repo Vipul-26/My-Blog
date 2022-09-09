@@ -11,11 +11,20 @@ const Article = ({ article }) => {
 
     const imgData = {
         'how-to-learn-javascript': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662030159/how-to-learn-javascript.jpg',
-        'how-to-learn-next-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662091463/how-to-learn-next-js_z9pqs5.jpg',
+        'how-to-learn-next-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662693516/how-to-learn-next-js_nt4han.jpg',
         'how-to-learn-react-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662091260/how-to-learn-react-js_xvuuho.jpg',
-        'javascript-as-programming-language': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662176788/sample_pisli2.jpg',
-        'next-js-with-tailwind-css': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662176788/sample_pisli2.jpg',
-        'usefull-hooks-in-react-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662176788/sample_pisli2.jpg',
+        'call-apply-and-bind-in-javascript': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662694482/call-apply-bind-in-javascript_uwlycf.png',
+        'next-js-with-tailwind-css': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662692351/next-tailwind_m6yejq.jpg',
+        'useful-hooks-in-react-js': 'https://res.cloudinary.com/dtv9j4t89/image/upload/v1662694181/react-hooks_wzmoex.png',
+    };
+
+    const sourceInfo = {
+        'how-to-learn-javascript': 'https://www.java67.com/',
+        'how-to-learn-next-js': 'https://www.educative.io/',
+        'how-to-learn-react-js': 'https://www.mindinventory.com/',
+        'call-apply-and-bind-in-javascript': 'https://www.freecodecamp.org/',
+        'next-js-with-tailwind-css': 'https://medium.com/',
+        'useful-hooks-in-react-js': 'https://www.educative.io/',
     };
 
     const imgUrl = imgData[article.attributes.slug];
@@ -134,6 +143,11 @@ const Article = ({ article }) => {
                             src={imgUrl}
                             alt={article.attributes.title}
                         />
+                        <div className='centerInfo'>
+                            <span className='sourceinfo'>
+                                Source:- {sourceInfo[article.attributes.slug]}
+                            </span>
+                        </div>
                         <div>
                             <MyMarkdown article={article.attributes.body} />
                         </div>

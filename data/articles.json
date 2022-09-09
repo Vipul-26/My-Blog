@@ -291,11 +291,11 @@
         {
             "id": 4,
             "attributes": {
-                "title": "Javascript as programming language",
+                "title": "Call Apply & Bind in Javascript",
                 "body": "JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes",
-                "slug": "javascript-as-programming-language",
+                "slug": "call-apply-and-bind-in-javascript",
                 "createdAt": "2022-08-16T12:49:50.977Z",
-                "updatedAt": "2022-08-16T12:50:04.678Z",
+                "updatedAt": "2022-09-09T03:39:59.274Z",
                 "publishedAt": "2022-08-16T12:49:52.509Z",
                 "image": {
                     "data": [
@@ -505,11 +505,11 @@
         {
             "id": 6,
             "attributes": {
-                "title": "Usefull hooks in React Js",
+                "title": "Useful hooks in React Js",
                 "body": "Hooks are the new feature introduced in the React 16.8 version. It allows you to use state and other React features without writing a class.",
-                "slug": "usefull-hooks-in-react-js",
+                "slug": "useful-hooks-in-react-js",
                 "createdAt": "2022-08-16T12:53:41.513Z",
-                "updatedAt": "2022-08-16T12:53:42.573Z",
+                "updatedAt": "2022-09-09T03:40:08.719Z",
                 "publishedAt": "2022-08-16T12:53:42.570Z",
                 "image": {
                     "data": [

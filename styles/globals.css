@@ -26,6 +26,15 @@
     background: azure;
 }
 
+.sourceinfo {
+    margin: 1rem auto;
+    font-size: x-small;
+}
+
+.centerInfo {
+    text-align: center
+}
+
 @layer components {
     .disabled {
         @apply opacity-50 cursor-not-allowed;
