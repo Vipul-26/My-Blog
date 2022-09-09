@@ -153,7 +153,7 @@ const Article = ({ article }) => {
                         </div>
                     </div>
                 </div>
-                <div className="sticky top-0 subscribeDiv">
+                <div className="top-0 subscribeDiv">
                     <h2 className="font-bold text-gray-600 text-lg">
                         Signup to our newsletter
                     </h2>
