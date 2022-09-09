@@ -27,6 +27,16 @@
     margin-bottom: 1rem;
 }
 
+.bodyTxt ol {
+    margin-bottom: 1rem;
+}
+
+.bodyTxt ol li {
+    list-style: disc;
+    font-size: small;
+    margin-left: 1rem;
+}
+
 .footer {
     background: azure;
 }
