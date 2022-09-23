@@ -53,7 +53,7 @@
 
 .disabled {
     background-color: #EBEBEB !important;
-    color: black;
+    color: #404040;
 }
 
 @layer components {
