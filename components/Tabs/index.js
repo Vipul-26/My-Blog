@@ -20,7 +20,7 @@ const Tabs = ({ categories, handleOnSearch }) => {
                             : 'border-white text-gray-400'
                         }`
                     }>
-                    <Link href="/">
+                    <Link href="/" style={{ color: '#218721' }}>
                         Recent
                     </Link>
                 </li>
