@@ -17,6 +17,8 @@ const Card = ({ article }) => {
                         src='https://res.cloudinary.com/dtv9j4t89/image/upload/v1661516788/Vipul_Kumar_Singh_zzvido.jpg'
                         height={35}
                         width={35}
+                        alt="vipul img"
+                        title="vipul img"
                     />
                 </div>
                 <span className="text-xs text-gray-600">

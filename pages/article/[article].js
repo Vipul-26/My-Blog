@@ -126,6 +126,8 @@ const Article = ({ article }) => {
                                 src='https://res.cloudinary.com/dtv9j4t89/image/upload/v1661516788/Vipul_Kumar_Singh_zzvido.jpg'
                                 height={35}
                                 width={35}
+                                alt="vipul img"
+                                title="vipul img"
                             />
                         </div>
                         <span className="text-xs font-bold text-gray-600">
@@ -142,6 +144,7 @@ const Article = ({ article }) => {
                             className={classnames("w-full my-6 mb-4 imgDiv")}
                             src={imgUrl}
                             alt={article.attributes.title}
+                            title={article.attributes.title}
                         />
                         <div className='centerInfo'>
                             <span className='sourceinfo'>
