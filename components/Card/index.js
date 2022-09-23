@@ -3,6 +3,7 @@ import React from 'react';
 import { formatDate } from '../../utils';
 import classnames from 'classnames';
 import style from './card.module.css';
+import Image from 'next/image';
 
 const Card = ({ article }) => {
 
@@ -13,9 +14,9 @@ const Card = ({ article }) => {
             </Link>
             <div className="flex items-center my-3 sm:my-4">
                 <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
-                    <img
-                        src='https://res.cloudinary.com/dtv9j4t89/image/upload/v1661516788/Vipul_Kumar_Singh_zzvido.jpg'
-                        height={35}
+                    <Image
+                        src='/Vipul.jpg'
+                        height={40}
                         width={35}
                         alt="vipul img"
                         title="vipul img"

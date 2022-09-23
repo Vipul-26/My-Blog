@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import dynamic from 'next/dynamic';
 const MyMarkdown = dynamic(() => import('../../components/MyMarkdown/index'), { ssr: false });
+import Image from 'next/image';
 
 const Article = ({ article }) => {
 
@@ -139,9 +140,9 @@ const Article = ({ article }) => {
                     </h1>
                     <div className="flex items-center my-2">
                         <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
-                            <img
-                                src='https://res.cloudinary.com/dtv9j4t89/image/upload/v1661516788/Vipul_Kumar_Singh_zzvido.jpg'
-                                height={35}
+                            <Image
+                                src='/Vipul.jpg'
+                                height={40}
                                 width={35}
                                 alt="vipul img"
                                 title="vipul img"
@@ -157,14 +158,16 @@ const Article = ({ article }) => {
                         </span>
                     </div>
                     <div className="text-lg text-gray-600 leading-8">
-                        <img
-                            className={classnames("w-full my-6 mb-4 imgDiv")}
-                            src={imgUrl}
-                            alt={article.attributes.title}
-                            title={article.attributes.title}
-                            width={400}
-                            height={400}
-                        />
+                        <div className="mx-auto" style={{ textAlign: 'center' }}>
+                            <Image
+                                className={classnames("w-full my-6 mb-4 imgDiv")}
+                                src={imgUrl}
+                                alt={article.attributes.title}
+                                title={article.attributes.title}
+                                width={430}
+                                height={220}
+                            />
+                        </div>
                         <div className='centerInfo'>
                             <span className='sourceinfo'>
                                 Source:- {sourceInfo[article.attributes.slug]}
