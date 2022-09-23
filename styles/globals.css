@@ -52,7 +52,8 @@
 }
 
 .disabled {
-    background-color: darkgray !important;
+    background-color: #EBEBEB !important;
+    color: #696969;
 }
 
 @layer components {
