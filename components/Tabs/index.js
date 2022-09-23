@@ -17,7 +17,7 @@ const Tabs = ({ categories, handleOnSearch }) => {
                         'mr-4 sm:pb-2 pb-1 border-b-4 rounded-sm ' +
                         `${router.pathname === '/'
                             ? 'border-primary text-primary'
-                            : 'border-white text-gray-400'
+                            : 'border-white text-gray-600'
                         }`
                     }>
                     <Link href="/" style={{ color: '#218721' }}>
@@ -32,7 +32,7 @@ const Tabs = ({ categories, handleOnSearch }) => {
                                 'mr-4 sm:pb-2 pb-1 border-b-4 rounded-sm ' +
                                 `${isActiveLink(category)
                                     ? 'border-primary text-primary'
-                                    : 'border-white text-gray-400'
+                                    : 'border-white text-gray-600'
                                 }`
                             }>
                             <Link
