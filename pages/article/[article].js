@@ -135,9 +135,9 @@ const Article = ({ article }) => {
             </Head>
             <div className="my-3 md:my-4 lg:my-6 xl:my-8 grid lg:grid-cols-3 gap-4 lg:gap-10 xl:gap-12 single-article">
                 <div className="col-span-2">
-                    <h1 className="text-xl font-bold py-1">
+                    <h2 className="text-xl font-bold py-1">
                         {article.attributes.title}
-                    </h1>
+                    </h2>
                     <div className="flex items-center my-2">
                         <div className="rounded-lg overflow-hidden flex items-center justify-center mr-2">
                             <Image
@@ -152,7 +152,7 @@ const Article = ({ article }) => {
                             {
                                 article.attributes.author.data.attributes.username
                             }{' '} on &nbsp;
-                            <span className="text-gray-400">
+                            <span className="text-gray-600">
                                 {formatDate(article.attributes.createdAt)}
                             </span>
                         </span>
@@ -202,6 +202,7 @@ const Article = ({ article }) => {
                         </span>
                         <a href="#" className="text-gray-500 hover:text-blue-700 facebook-btn">
                             <svg
+                                aria-label="facebook"
                                 fill="currentColor"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -213,6 +214,7 @@ const Article = ({ article }) => {
                         </a>
                         <a href="#" className="ml-3 text-gray-500 hover:text-blue-500 twitter-btn">
                             <svg
+                                aria-label="twitter"
                                 fill="currentColor"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -224,6 +226,7 @@ const Article = ({ article }) => {
                         </a>
                         <a href="#" className="ml-3 text-gray-500 hover:text-purple-700 linkedin-btn">
                             <svg
+                                aria-label="linkedin"
                                 fill="currentColor"
                                 stroke="currentColor"
                                 strokeLinecap="round"
