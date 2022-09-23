@@ -51,6 +51,10 @@
     margin-bottom: 1rem;
 }
 
+.disabled {
+    background-color: darkgray !important;
+}
+
 @layer components {
     .disabled {
         @apply opacity-50 cursor-not-allowed;

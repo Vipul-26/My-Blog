@@ -129,8 +129,8 @@ const Article = ({ article }) => {
                 <meta property="og:description" content="This is a blog website" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://blog-vipul-26.vercel.app/" />
-                <meta property="og:image" content="/V-BlogNew.png" />
-                <meta name="twitter:image" content="/V-BlogNew.png" />
+                <meta property="og:image" content="/V-BlogNewest.png" />
+                <meta name="twitter:image" content="/V-BlogNewest.png" />
                 <meta name="robots" content="index, follow" />
             </Head>
             <div className="my-3 md:my-4 lg:my-6 xl:my-8 grid lg:grid-cols-3 gap-4 lg:gap-10 xl:gap-12 single-article">
