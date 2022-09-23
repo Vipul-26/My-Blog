@@ -25,7 +25,7 @@ const Card = ({ article }) => {
                 <span className="text-xs text-gray-600">
                     {article.attributes.author.data.attributes.username}{' '} on
                     &nbsp;
-                    <span className="text-gray-400 text-xs">
+                    <span className="text-gray-600 text-xs">
                         {formatDate(article.attributes.createdAt)}
                     </span>
                 </span>
