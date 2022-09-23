@@ -6,6 +6,29 @@
     max-width: 1200px !important;
 }
 
+.center {
+    text-align: center;
+}
+
+.errorCls {
+    color: red;
+    padding-top: 0.5rem;
+}
+
+.successCls {
+    color: green;
+    padding-top: 0.5rem;
+}
+
+.loadingCls {
+    color: blue;
+    padding-top: 0.5rem;
+}
+
+.primaryColor {
+    color: #218721;
+}
+
 .imgDiv {
     margin: 1.5rem auto;
     height: 50%;

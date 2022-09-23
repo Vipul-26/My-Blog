@@ -77,16 +77,16 @@ const Article = ({ article }) => {
 
         return (
             <div>
-                {status === "sending" && <div style={{ color: "blue", paddingTop: '0.5rem' }}>sending...</div>}
+                {status === "sending" && <div className='loadingCls'>sending...</div>}
                 {status === "error" && (
                     <div
-                        style={{ color: "red", paddingTop: '0.5rem' }}
+                        className='errorCls'
                         dangerouslySetInnerHTML={{ __html: message }}
                     />
                 )}
                 {status === "success" && (
                     <div
-                        style={{ color: "green", paddingTop: '0.5rem' }}
+                        className='successCls'
                         dangerouslySetInnerHTML={{ __html: message }}
                     />
                 )}
@@ -131,7 +131,7 @@ const Article = ({ article }) => {
                         </span>
                     </div>
                     <div className="text-lg text-gray-600 leading-8">
-                        <div className="mx-auto" style={{ textAlign: 'center' }}>
+                        <div className="mx-auto center">
                             <Image
                                 className={classnames("w-full my-6 mb-4 imgDiv")}
                                 src={imgUrl}

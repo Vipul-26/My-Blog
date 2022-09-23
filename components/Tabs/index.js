@@ -20,7 +20,7 @@ const Tabs = ({ categories, handleOnSearch }) => {
                             : 'border-white text-gray-600'
                         }`
                     }>
-                    <Link href="/" style={{ color: '#218721' }}>
+                    <Link href="/" className="primaryColor">
                         Recent
                     </Link>
                 </li>
@@ -55,6 +55,7 @@ const Tabs = ({ categories, handleOnSearch }) => {
                     type="text"
                     placeholder="Search"
                     className="outline-none px-2 py-1 ml-1"
+                    aria-label='search field'
                 />
             </div>
         </div>
